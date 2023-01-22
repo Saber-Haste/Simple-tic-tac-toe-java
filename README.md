@@ -3,10 +3,17 @@
 
 Simple tic-tac-toe game that is written in java.
 
-## Installation 
+## ✔️To-do List
+<ul>
+<li>Get it Working</li>
+<li>Make it look good</li>
+<li>Add the first release</li>
+</ul>
+
+## 💿Installation 
 Install the latest version from the <a href="https://github.com/Saber-Haste/Simple-tic-tac-toe-java/releases" >releases</a>.
 
-## Compilation
+## 🖥️Compilation
 
 ### Requirements-
 <ul>
@@ -27,5 +34,5 @@ Now just compile and run the Main.java
 javac Main.java
 java Main
 ```
-## Remarks
+## 😊Remarks
 This is one of my first projects. I sincierly thanks everyone that directly/indirectly motivated me to finally get into coding.❤️❤️
