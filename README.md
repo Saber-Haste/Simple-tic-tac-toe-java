@@ -11,7 +11,7 @@ Simple tic-tac-toe game that is written in java.
 <li>Add the first release</li>
 </ul>
 
-## 💿Installation 
+## 💿Installation
 Install the latest version from the <a href="https://github.com/Saber-Haste/Simple-tic-tac-toe-java/releases" >releases</a>.
 
 ## 🖥️Compilation
@@ -21,12 +21,12 @@ Install the latest version from the <a href="https://github.com/Saber-Haste/Simp
 <li> <a href="https://www.microsoft.com/openjdk" >OpenJDK</a> </li>
 <li><a href="https://git-scm.com/downloads" >git</a></li>
 </ul>
- 
- Now open the terminal and clone this repo.
+
+Now open the terminal and clone this repo.
  ```sh
  git clone https://github.com/Saber-Haste/Simple-tic-tac-toe-java.git
  ```
- change the active directory by
+change the active directory by
  ```sh
  cd Simple-tic-tac-toe-java
  ```
