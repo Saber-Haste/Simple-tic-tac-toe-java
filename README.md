@@ -1,5 +1,5 @@
 ## #️⃣Simple tic-tac-toe game written in Java
-<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Saber-Haste/Simple-tic-tac-toe-java"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/Saber-Haste/Simple-tic-tac-toe-java"> <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/Saber-Haste/Simple-tic-tac-toe-java"> <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Saber-Haste/Simple-tic-tac-toe-java">
+<img pointer-events: none alt="GitHub language count" src="https://img.shields.io/github/languages/count/Saber-Haste/Simple-tic-tac-toe-java"> <img pointer-events: none alt="GitHub issues" src="https://img.shields.io/github/issues/Saber-Haste/Simple-tic-tac-toe-java"> <img pointer-events: none alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/Saber-Haste/Simple-tic-tac-toe-java"> <img pointer-events: none alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Saber-Haste/Simple-tic-tac-toe-java">
 
 Simple tic-tac-toe game that is written in java.
 
@@ -36,4 +36,4 @@ javac src.Main.java
 java src.Main
 ```
 ## 😊Remarks
-This is one of my first projects. I sincierly thanks everyone that directly/indirectly motivated me to finally get into coding.❤️❤️
+This is one of my first projects. I sincerely thank everyone that directly/indirectly motivated me to finally get into coding.❤️❤️
