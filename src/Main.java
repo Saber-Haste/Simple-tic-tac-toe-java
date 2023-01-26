@@ -5,20 +5,20 @@ import java.awt.event.*;
 import java.awt.*;
 
 public class Main extends JPanel{
-    //initilize the 3x3 matrix 
+    //initialize the 3x3 matrix
     static int[][] matrix = new int[3][3];
     static int turn=1;
-    // static boolean cross=false;
+    static int winfreeze=0;
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         //the structure
         g.drawString("-----------------------------------",600, 120);
-        g.drawString("-----------------------------------",600, 170);
-        for(int i=70;i<220;i++) {
+        g.drawString("-----------------------------------",600, 175);
+        for(int i=70;i<230;i++) {
             g.drawString("|",640, i);
         }
-        for(int i=70;i<220;i++) {
+        for(int i=70;i<230;i++) {
             g.drawString("|",690, i);
         }
         //print 0 and x
@@ -43,11 +43,9 @@ public class Main extends JPanel{
 
         //the if part does not work
         if(c==1) {
-            int winner=((turn--)%2);
-            if(winner==0)
-            winner=1;
-            else
-            winner=2;
+            winfreeze=1;
+            int winner=(turn);
+            winner++;
             g.drawString("player "+winner+"wins",440,250);
         }
 
@@ -73,6 +71,16 @@ public class Main extends JPanel{
         JButton b31 = new JButton("*");
         JButton b32 = new JButton("*");
         JButton b33 = new JButton("*");
+
+
+        JLabel p1 = new JLabel("Player 1:o");
+        JLabel p2 = new JLabel("Player 2:x");
+        f.add(p1);
+        f.add(p2);
+        p1.setBounds(150,50,60,50);
+        p2.setBounds(150,100,60,50);
+
+
         f.add(b11);
         f.add(b12);
         f.add(b13);
@@ -84,6 +92,8 @@ public class Main extends JPanel{
         f.add(b33);
 
         f.add(m);
+
+
 
         b11.setBounds(300,50,50,50);
         b12.setBounds(360,50,50,50);
@@ -101,9 +111,9 @@ public class Main extends JPanel{
 
 
         b11.addActionListener(new ActionListener() {
-            @Override
+//            @Override
             public void actionPerformed(ActionEvent e) {
-               if(turn%2==0) {
+               if(turn==0) {
                 matrix[0][0]=1;
                }
                else {
@@ -111,13 +121,14 @@ public class Main extends JPanel{
                }
 
                //call that method here
-               f.repaint();turn++;
+               f.repaint();turn=1-turn;
             }
         });
         b12.addActionListener(new ActionListener() {
-            @Override
+//            @Override
             public void actionPerformed(ActionEvent e) {
-                if(turn%2==0) {
+//                if(winfreeze!=1) {
+                if(turn==0) {
                     matrix[0][1]=1;
                    }
                    else {
@@ -125,13 +136,13 @@ public class Main extends JPanel{
                    }
 
                //call that method here
-               f.repaint();turn++;
+               f.repaint();turn=1-turn; //}
             }
         });
         b13.addActionListener(new ActionListener() {
-            @Override
+//            @Override
             public void actionPerformed(ActionEvent e) {
-                if(turn%2==0) {
+                if(turn==0) {
                     matrix[0][2]=1;
                    }
                    else {
@@ -139,13 +150,13 @@ public class Main extends JPanel{
                    }
 
                //call that method here
-               f.repaint();turn++;
+               f.repaint();turn=1-turn;
             }
         });
         b21.addActionListener(new ActionListener() {
-            @Override
+//            @Override
             public void actionPerformed(ActionEvent e) {
-                if(turn%2==0) {
+                if(turn==0) {
                     matrix[1][0]=1;
                    }
                    else {
@@ -153,13 +164,13 @@ public class Main extends JPanel{
                    }
 
                //call that method here
-               f.repaint();turn++;
+               f.repaint();turn=1-turn;
             }
         });
         b22.addActionListener(new ActionListener() {
-            @Override
+//            @Override
             public void actionPerformed(ActionEvent e) {
-                if(turn%2==0) {
+                if(turn==0) {
                     matrix[1][1]=1;
                    }
                    else {
@@ -167,13 +178,13 @@ public class Main extends JPanel{
                    }
 
                //call that method here
-               f.repaint();turn++;
+               f.repaint();turn=1-turn;
             }
         });
         b23.addActionListener(new ActionListener() {
-            @Override
+//            @Override
             public void actionPerformed(ActionEvent e) {
-                if(turn%2==0) {
+                if(turn==0) {
                     matrix[1][2]=1;
                    }
                    else {
@@ -181,13 +192,13 @@ public class Main extends JPanel{
                    }
 
                //call that method here
-               f.repaint();turn++;
+               f.repaint();turn=1-turn;
             }
         });
         b31.addActionListener(new ActionListener() {
-            @Override
+//            @Override
             public void actionPerformed(ActionEvent e) {
-                if(turn%2==0) {
+                if(turn==0) {
                     matrix[2][0]=1;
                    }
                    else {
@@ -195,13 +206,13 @@ public class Main extends JPanel{
                    }
 
                //call that method here
-               f.repaint();turn++;
+               f.repaint();turn=1-turn;
             }
         });
         b32.addActionListener(new ActionListener() {
-            @Override
+//            @Override
             public void actionPerformed(ActionEvent e) {
-                if(turn%2==0) {
+                if(turn==0) {
                     matrix[2][1]=1;
                    }
                    else {
@@ -209,13 +220,13 @@ public class Main extends JPanel{
                    }
 
                //call that method here
-               f.repaint();turn++;
+               f.repaint();turn=1-turn;
             }
         });
         b33.addActionListener(new ActionListener() {
-            @Override
+//            @Override
             public void actionPerformed(ActionEvent e) {
-                if(turn%2==0) {
+                if(turn==0) {
                     matrix[2][2]=1;
                    }
                    else {
@@ -223,7 +234,7 @@ public class Main extends JPanel{
                    }
 
                //call that method here
-               f.repaint();turn++;
+               f.repaint();turn=1-turn;
             }
         });
 
@@ -239,10 +250,8 @@ int c=0;
 
 //check horizontal
         for(int i=0;i<3;i++) {
-            if((matrix[i][0]==matrix[i][1])&&((matrix[i][0]==matrix[i][2]))) {
-                if(matrix[i][0]==0)
-                c=0;
-                else
+            if((matrix[i][0]==matrix[i][1])&&(matrix[i][0]==matrix[i][2])) {
+                if((matrix[i][0]!=0))
                 c=1;
             }
         }
@@ -250,9 +259,9 @@ int c=0;
         //check vertical
         for(int i=0;i<3;i++) {
             if((matrix[0][i]==matrix[1][i])&&((matrix[0][i]==matrix[2][i]))) {
-                if(matrix[0][i]==0)
-                c=0;
-                else
+                if(matrix[0][i]!=0)
+//                c=0;
+//                else
                 c=1;
             }
         }
@@ -260,20 +269,25 @@ int c=0;
         //check slanding 1
 
             if((matrix[0][0]==matrix[1][1])&&(matrix[0][0]==matrix[2][2])) {
-                if(matrix[0][0]==0)
-                c=0;
-                else
+                if(matrix[0][0]!=0)
+//                c=0;
+//                else
                 c=1;
 
             }
             if((matrix[0][2]==matrix[1][1])&&(matrix[0][2]==matrix[2][0])) {
-                if(matrix[0][2]==0)
-                c=0;
-                else
+                if(matrix[0][2]!=0)
+//                c=0;
+//                else
                 c=1;
             }
         
-
+//print matrix (debugging)
+        for(int i=0;i<3;i++) {
+            for(int j=0;j<3;j++) {
+                System.out.print(matrix[i][j]+" ");
+            }System.out.println("");
+        }
 return c;
 
 
