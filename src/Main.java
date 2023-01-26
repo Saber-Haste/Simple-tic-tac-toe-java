@@ -1,4 +1,4 @@
-//Main from scratch 
+package src;//src.Main from scratch
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -263,7 +263,7 @@ int c=0;
                 if(matrix[0][0]==0)
                 c=0;
                 else
-                c=1;;
+                c=1;
 
             }
             if((matrix[0][2]==matrix[1][1])&&(matrix[0][2]==matrix[2][0])) {

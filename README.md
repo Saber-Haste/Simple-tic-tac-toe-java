@@ -30,10 +30,10 @@ Install the latest version from the <a href="https://github.com/Saber-Haste/Simp
  ```sh
  cd Simple-tic-tac-toe-java
  ```
-Now just compile and run the Main.java
+Now just compile and run the src.Main.java
 ```sh
-javac Main.java
-java Main
+javac src.Main.java
+java src.Main
 ```
 ## 😊Remarks
 This is one of my first projects. I sincierly thanks everyone that directly/indirectly motivated me to finally get into coding.❤️❤️
