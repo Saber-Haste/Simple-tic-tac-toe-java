@@ -7,7 +7,7 @@ Simple tic-tac-toe game that is written in java.
 <ul>
 <li><s>Get it Working</s></li>
 <li><s>fix bugs</s></li>
-<li>Make it look good</li>
+<li><s>Make it look good</s></li>
 <li>Add the first release</li>
 </ul>
 
