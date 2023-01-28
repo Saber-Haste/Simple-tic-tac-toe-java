@@ -13,11 +13,12 @@ public class Main extends JPanel{
     static int turn=1;
     static int winfreeze=0;
     static int leftx=40;//sets the x cord of left items
+    static int start=0;
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2d = (Graphics2D) g;
-//        Line2D line = new Line2D.Float(200, 150, 150, 220);
+//        Graphics2D g2d = (Graphics2D) g;
+
         //two lines
         Font myfont = new Font("Serif", Font.BOLD, 24);
         g.setFont(myfont); //sets the font
@@ -26,20 +27,20 @@ public class Main extends JPanel{
         g.drawString("Player 2: (X)",leftx,120);
 
         //the structure
-        g.drawString("-----------------------------------",600, 120);
-        g.drawString("-----------------------------------",600, 175);
-        for(int i=70;i<230;i++) {
-            g.drawString("|",640, i);
+        g.drawString("---------------------",220, 100);
+        g.drawString("---------------------",220, 160);
+        for(int i=50;i<210;i++) {
+            g.drawString("|",273, i);
         }
-        for(int i=70;i<230;i++) {
-            g.drawString("|",690, i);
+        for(int i=50;i<210;i++) {
+            g.drawString("|",333, i);
         }
         //structure 2
-
+//        Line2D line = new Line2D.Float(200, 150, 150, 220);
 
         //print 0 and x
-        int x=600;
-        int y=100;
+        int x=240;
+        int y=80;
         for(int i=0;i<3;i++) {
             for(int j=0;j<3;j++) {
                 if(matrix[i][j]==0) {
@@ -53,7 +54,7 @@ public class Main extends JPanel{
                 }
                 x+=60;
 
-            } y+=55;x=600;//increments y , resets x
+            } y+=55;x=240;//increments y , resets x
         }
         int c=eval();
 
@@ -79,6 +80,31 @@ public class Main extends JPanel{
 
             }
 
+        }
+        if(c==0) { //does not win
+            if(turn==0) {  //see which turn
+                    if(l==null) { //at beginning/reset the string is null
+                        g.drawString("New Game",leftx,215);
+                    }
+                    else if(l.equals("")) { //if there is no name given
+                        g.drawString("X's turn",leftx,215);
+                    }
+                    else { //if there is name given
+                    g.drawString(l+"'s turn(X)",leftx,215);
+                    }
+
+            } else if (turn==1) {
+                if(k==null) {
+                    g.drawString("New Game",leftx,215);
+                }
+                else if(l.equals("")) {
+                    g.drawString("O's turn",leftx,215);
+                }
+                else {
+                    g.drawString(k+"'s turn(O)",leftx,215);
+                }
+
+            }
         }
 
 
@@ -135,20 +161,21 @@ public class Main extends JPanel{
         f.add(m);
 
 
-
-        b11.setBounds(300,50,50,50);
-        b12.setBounds(360,50,50,50);
-        b13.setBounds(420,50,50,50);
-        b21.setBounds(300,110,50,50);
-        b22.setBounds(360,110,50,50);
-        b23.setBounds(420,110,50,50);
-        b31.setBounds(300,170,50,50);
-        b32.setBounds(360,170,50,50);
-        b33.setBounds(420,170,50,50);
+        int buttonx=220; //also the xcord of right
+        int buttony=40;
+        b11.setBounds(buttonx,buttony,50,50);
+        b12.setBounds(sum(buttonx,60),buttony,50,50);
+        b13.setBounds(sum(buttonx,120),buttony,50,50);
+        b21.setBounds(buttonx,sum(buttony,60),50,50);
+        b22.setBounds(sum(buttonx,60),sum(buttony,60),50,50);
+        b23.setBounds(sum(buttonx,120),sum(buttony,60),50,50);
+        b31.setBounds(buttonx,sum(buttony,120),50,50);
+        b32.setBounds(sum(buttonx,60),sum(buttony,120),50,50);
+        b33.setBounds(sum(buttonx,120),sum(buttony,120),50,50);
 
         reset.setBounds(leftx,160,70,30);
 
-        f.setSize(1000,400);
+        f.setSize(475,300);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -200,7 +227,7 @@ public class Main extends JPanel{
         b13.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-
+                start=1;
                 b13.setOpaque(false);
                 b13.setContentAreaFilled(false);
                 b13.setBorderPainted(false);
@@ -220,6 +247,7 @@ public class Main extends JPanel{
         b21.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
+                start=1;
 
                 b21.setOpaque(false);
                 b21.setContentAreaFilled(false);
@@ -240,6 +268,7 @@ public class Main extends JPanel{
         b22.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
+                start=1;
 
                 b22.setOpaque(false);
                 b22.setContentAreaFilled(false);
@@ -260,6 +289,7 @@ public class Main extends JPanel{
         b23.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
+                start=1;
 
                 b23.setOpaque(false);
                 b23.setContentAreaFilled(false);
@@ -280,6 +310,7 @@ public class Main extends JPanel{
         b31.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
+                start=1;
 
                 b31.setOpaque(false);
                 b31.setContentAreaFilled(false);
@@ -300,6 +331,7 @@ public class Main extends JPanel{
         b32.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
+                start=1;
 
                 b32.setOpaque(false);
                 b32.setContentAreaFilled(false);
@@ -320,6 +352,7 @@ public class Main extends JPanel{
         b33.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
+                start=1;
 
                 b33.setOpaque(false);
                 b33.setContentAreaFilled(false);
@@ -340,6 +373,7 @@ public class Main extends JPanel{
         reset.addActionListener(new ActionListener() {
             //            @Override
             public void actionPerformed(ActionEvent e) {
+                start=0;
 
                 b11.setOpaque(true);
                 b12.setOpaque(true);
@@ -444,6 +478,7 @@ static void resetfn() {
             matrix[i][j] = 0;
         }
     }
+    l=k=null;
 
 }
 static int sum(int num1,int num2) {
