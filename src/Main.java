@@ -49,12 +49,12 @@ public class Main extends JPanel{
         if(c==1) {
             winfreeze=1;
             int winner=(turn);
-            winner++;
+            winner++;// 0 becomes 1 and 1 becomes 2
             if(winner==1) {
                 g.drawString("player :"+k+" wins",440,250);
             }
             else {
-                g.drawString("player :"+k+" wins",440,250);
+                g.drawString("player :"+l+" wins",440,250);
             }
 
         }
@@ -82,6 +82,8 @@ public class Main extends JPanel{
         JButton b32 = new JButton("*");
         JButton b33 = new JButton("*");
 
+        JButton reset = new JButton("Reset");
+
         JTextField t1= new JTextField();
         JTextField t2 = new JTextField();
 
@@ -104,6 +106,8 @@ public class Main extends JPanel{
         f.add(b32);
         f.add(b33);
 
+        f.add(reset);
+
         f.add(m);
 
 
@@ -118,6 +122,8 @@ public class Main extends JPanel{
         b32.setBounds(360,170,50,50);
         b33.setBounds(420,170,50,50);
 
+        reset.setBounds(150,150,70,30);
+
         f.setSize(1000,400);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -126,7 +132,8 @@ public class Main extends JPanel{
         b11.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-                getwinner(t1.getText());
+                getwinner1(t1.getText());
+                getwinner2(t2.getText());
                if(turn==0) {
                 matrix[0][0]=1;
                }
@@ -140,7 +147,8 @@ public class Main extends JPanel{
         b12.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-                getwinner(t1.getText());
+                getwinner1(t1.getText());
+                getwinner2(t2.getText());
 //                if(winfreeze!=1) {
                 if(turn==0) {
                     matrix[0][1]=1;
@@ -156,7 +164,8 @@ public class Main extends JPanel{
         b13.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-                getwinner(t1.getText());
+                getwinner1(t1.getText());
+                getwinner2(t2.getText());
                 if(turn==0) {
                     matrix[0][2]=1;
                    }
@@ -171,7 +180,8 @@ public class Main extends JPanel{
         b21.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-                getwinner(t1.getText());
+                getwinner1(t1.getText());
+                getwinner2(t2.getText());
                 if(turn==0) {
                     matrix[1][0]=1;
                    }
@@ -186,7 +196,8 @@ public class Main extends JPanel{
         b22.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-                getwinner(t1.getText());
+                getwinner1(t1.getText());
+                getwinner2(t2.getText());
                 if(turn==0) {
                     matrix[1][1]=1;
                    }
@@ -201,7 +212,8 @@ public class Main extends JPanel{
         b23.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-                getwinner(t1.getText());
+                getwinner1(t1.getText());
+                getwinner2(t2.getText());
                 if(turn==0) {
                     matrix[1][2]=1;
                    }
@@ -216,7 +228,8 @@ public class Main extends JPanel{
         b31.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-                getwinner(t1.getText());
+                getwinner1(t1.getText());
+                getwinner2(t2.getText());
                 if(turn==0) {
                     matrix[2][0]=1;
                    }
@@ -231,7 +244,8 @@ public class Main extends JPanel{
         b32.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-                getwinner(t1.getText());
+                getwinner1(t1.getText());
+                getwinner2(t2.getText());
                 if(turn==0) {
                     matrix[2][1]=1;
                    }
@@ -246,7 +260,8 @@ public class Main extends JPanel{
         b33.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-                getwinner(t1.getText());
+                getwinner1(t1.getText());
+                getwinner2(t2.getText());
                 if(turn==0) {
                     matrix[2][2]=1;
                    }
@@ -256,6 +271,15 @@ public class Main extends JPanel{
 
                //call that method here
                f.repaint();turn=1-turn;
+            }
+        });
+        reset.addActionListener(new ActionListener() {
+            //            @Override
+            public void actionPerformed(ActionEvent e) {
+                resetfn();
+
+                //call that method here
+                f.repaint();
             }
         });
 
@@ -313,8 +337,20 @@ return c;
 
 
 }
-static String k;
-static void  getwinner(String q) {
+static String k,l;
+static void  getwinner1(String q) {
 k=q;
+}
+static void  getwinner2(String r) {
+        l=r;
+    }
+static void resetfn() {
+    turn = 1;
+    for(int i =0;i<3;i++) {
+        for(int j=0;j<3;j++) {
+            matrix[i][j] = 0;
+        }
+    }
+
 }
 }
