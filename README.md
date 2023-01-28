@@ -6,7 +6,7 @@ Simple tic-tac-toe game that is written in java.
 ## ✔️To-do List
 <ul>
 <li><s>Get it Working</s></li>
-<li>fix bugs</li>
+<li><s>fix bugs</s></li>
 <li>Make it look good</li>
 <li>Add the first release</li>
 </ul>
