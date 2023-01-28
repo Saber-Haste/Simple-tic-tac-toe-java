@@ -4,17 +4,26 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
+import java.awt.Graphics2D;
+import java.awt.geom.Line2D;
+
 public class Main extends JPanel{
     //initialize the 3x3 matrix
     static int[][] matrix = new int[3][3];
     static int turn=1;
     static int winfreeze=0;
+    static int leftx=40;//sets the x cord of left items
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
+//        Line2D line = new Line2D.Float(200, 150, 150, 220);
         //two lines
-        g.drawString("player 1: (O)",150,60);
-        g.drawString("player 2: (X)",150,110);
+        Font myfont = new Font("Serif", Font.BOLD, 24);
+        g.setFont(myfont); //sets the font
+
+        g.drawString("Player 1: (O)",leftx,60);
+        g.drawString("Player 2: (X)",leftx,120);
 
         //the structure
         g.drawString("-----------------------------------",600, 120);
@@ -25,6 +34,9 @@ public class Main extends JPanel{
         for(int i=70;i<230;i++) {
             g.drawString("|",690, i);
         }
+        //structure 2
+
+
         //print 0 and x
         int x=600;
         int y=100;
@@ -41,7 +53,7 @@ public class Main extends JPanel{
                 }
                 x+=60;
 
-            }y+=55;x=600;
+            } y+=55;x=600;//increments y , resets x
         }
         int c=eval();
 
@@ -51,10 +63,20 @@ public class Main extends JPanel{
             int winner=(turn);
             winner++;// 0 becomes 1 and 1 becomes 2
             if(winner==1) {
-                g.drawString("player :"+k+" wins",440,250);
+                if(k.equals("")) {
+                    g.drawString("Player :o wins",leftx,215);
+                }else {
+                    g.drawString("Player :"+k+" wins",leftx,215);
+                }
+
             }
             else {
-                g.drawString("player :"+l+" wins",440,250);
+                if(l.equals("")) {
+                    g.drawString("Player :x wins",leftx,215);
+                } else {
+                    g.drawString("Player :"+l+" wins",leftx,215);
+                }
+
             }
 
         }
@@ -62,7 +84,7 @@ public class Main extends JPanel{
 
     }
 
-    public static void main(String arg[]) {
+    public static void main(String[] arg) {
 
         for(int i =0;i<3;i++) {
             for(int j=0;j<3;j++) {
@@ -72,15 +94,16 @@ public class Main extends JPanel{
         
         Main m = new Main();
         JFrame f=new JFrame("Tic-Tac-Toe");
-        JButton b11 = new JButton("*");
-        JButton b12 = new JButton("*");
-        JButton b13 = new JButton("*");
-        JButton b21 = new JButton("*");
-        JButton b22 = new JButton("*");
-        JButton b23 = new JButton("*");
-        JButton b31 = new JButton("*");
-        JButton b32 = new JButton("*");
-        JButton b33 = new JButton("*");
+        m.setBackground( Color.white);  //use decode function for hex eg) Color.decode("#986");
+        JButton b11 = new JButton();
+        JButton b12 = new JButton();
+        JButton b13 = new JButton();
+        JButton b21 = new JButton();
+        JButton b22 = new JButton();
+        JButton b23 = new JButton();
+        JButton b31 = new JButton();
+        JButton b32 = new JButton();
+        JButton b33 = new JButton();
 
         JButton reset = new JButton("Reset");
 
@@ -90,9 +113,10 @@ public class Main extends JPanel{
         f.add(t1);
         f.add(t2);
 
-        t1.setBounds(150,70,110,20);
-        t2.setBounds(150,120,110,20);
-
+        t1.setBounds(leftx,70,110,25);
+        t1.setFont(new Font("Serif", Font.PLAIN, 20));
+        t2.setBounds(leftx,130,110,25);
+        t2.setFont(new Font("Serif", Font.PLAIN, 20));
 
 
 
@@ -122,16 +146,24 @@ public class Main extends JPanel{
         b32.setBounds(360,170,50,50);
         b33.setBounds(420,170,50,50);
 
-        reset.setBounds(150,150,70,30);
+        reset.setBounds(leftx,160,70,30);
 
         f.setSize(1000,400);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
+
+
         b11.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
+
+                b11.setOpaque(false);
+                b11.setContentAreaFilled(false);
+                b11.setBorderPainted(false);
+
+
                 getwinner1(t1.getText());
                 getwinner2(t2.getText());
                if(turn==0) {
@@ -147,6 +179,10 @@ public class Main extends JPanel{
         b12.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
+
+                b12.setOpaque(false);
+                b12.setContentAreaFilled(false);
+                b12.setBorderPainted(false);
                 getwinner1(t1.getText());
                 getwinner2(t2.getText());
 //                if(winfreeze!=1) {
@@ -164,6 +200,10 @@ public class Main extends JPanel{
         b13.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
+
+                b13.setOpaque(false);
+                b13.setContentAreaFilled(false);
+                b13.setBorderPainted(false);
                 getwinner1(t1.getText());
                 getwinner2(t2.getText());
                 if(turn==0) {
@@ -180,6 +220,10 @@ public class Main extends JPanel{
         b21.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
+
+                b21.setOpaque(false);
+                b21.setContentAreaFilled(false);
+                b21.setBorderPainted(false);
                 getwinner1(t1.getText());
                 getwinner2(t2.getText());
                 if(turn==0) {
@@ -196,6 +240,10 @@ public class Main extends JPanel{
         b22.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
+
+                b22.setOpaque(false);
+                b22.setContentAreaFilled(false);
+                b22.setBorderPainted(false);
                 getwinner1(t1.getText());
                 getwinner2(t2.getText());
                 if(turn==0) {
@@ -212,6 +260,10 @@ public class Main extends JPanel{
         b23.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
+
+                b23.setOpaque(false);
+                b23.setContentAreaFilled(false);
+                b23.setBorderPainted(false);
                 getwinner1(t1.getText());
                 getwinner2(t2.getText());
                 if(turn==0) {
@@ -228,6 +280,10 @@ public class Main extends JPanel{
         b31.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
+
+                b31.setOpaque(false);
+                b31.setContentAreaFilled(false);
+                b31.setBorderPainted(false);
                 getwinner1(t1.getText());
                 getwinner2(t2.getText());
                 if(turn==0) {
@@ -244,6 +300,10 @@ public class Main extends JPanel{
         b32.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
+
+                b32.setOpaque(false);
+                b32.setContentAreaFilled(false);
+                b32.setBorderPainted(false);
                 getwinner1(t1.getText());
                 getwinner2(t2.getText());
                 if(turn==0) {
@@ -260,6 +320,10 @@ public class Main extends JPanel{
         b33.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
+
+                b33.setOpaque(false);
+                b33.setContentAreaFilled(false);
+                b33.setBorderPainted(false);
                 getwinner1(t1.getText());
                 getwinner2(t2.getText());
                 if(turn==0) {
@@ -276,8 +340,37 @@ public class Main extends JPanel{
         reset.addActionListener(new ActionListener() {
             //            @Override
             public void actionPerformed(ActionEvent e) {
-                resetfn();
 
+                b11.setOpaque(true);
+                b12.setOpaque(true);
+                b13.setOpaque(true);
+                b21.setOpaque(true);
+                b22.setOpaque(true);
+                b23.setOpaque(true);
+                b31.setOpaque(true);
+                b32.setOpaque(true);
+                b33.setOpaque(true);
+                b11.setContentAreaFilled(true);
+                b12.setContentAreaFilled(true);
+                b13.setContentAreaFilled(true);
+                b21.setContentAreaFilled(true);
+                b23.setContentAreaFilled(true);
+                b22.setContentAreaFilled(true);
+                b31.setContentAreaFilled(true);
+                b32.setContentAreaFilled(true);
+                b33.setContentAreaFilled(true);
+                b11.setBorderPainted(true);
+                b12.setBorderPainted(true);
+                b13.setBorderPainted(true);
+                b21.setBorderPainted(true);
+                b22.setBorderPainted(true);
+                b23.setBorderPainted(true);
+                b31.setBorderPainted(true);
+                b32.setBorderPainted(true);
+                b33.setBorderPainted(true);
+                resetfn();
+                t1.setText("");
+                t2.setText("");
                 //call that method here
                 f.repaint();
             }
@@ -353,4 +446,9 @@ static void resetfn() {
     }
 
 }
+static int sum(int num1,int num2) {
+    num1 = num2+num1;
+    return num1;
 }
+}
+
