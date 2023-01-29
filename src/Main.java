@@ -18,7 +18,7 @@ public class Main extends JPanel{
     static int winfreeze=0;
     static int leftx=40;//sets the x cord of left items
     static int start=0;
-
+    static int resetwait=0;
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 //        Graphics2D g2d = (Graphics2D) g;
@@ -64,6 +64,10 @@ public class Main extends JPanel{
 
         //the if part does not work
         if(c==1) {
+//            int resetwait=0;
+            resetwait =1;
+            System.out.println(resetwait);
+
             winfreeze=1;
             int winner=(turn);
             winner++;// 0 becomes 1 and 1 becomes 2
@@ -190,196 +194,222 @@ public class Main extends JPanel{
         b11.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
+                if(resetwait==0) {
+                    b11.setOpaque(false);
+                    b11.setContentAreaFilled(false);
+                    b11.setBorderPainted(false);
 
-                b11.setOpaque(false);
-                b11.setContentAreaFilled(false);
-                b11.setBorderPainted(false);
 
+                    getwinner1(t1.getText());
+                    getwinner2(t2.getText());
+                    if(turn==0) {
+                        matrix[0][0]=1;
+                    }
+                    else {
+                        matrix[0][0]=2;
+                    }
+                    //call that method here
+                    f.repaint();turn=1-turn;
+                }
 
-                getwinner1(t1.getText());
-                getwinner2(t2.getText());
-               if(turn==0) {
-                matrix[0][0]=1;
-               }
-               else {
-                matrix[0][0]=2;
-               }
-               //call that method here
-               f.repaint();turn=1-turn;
             }
         });
         b12.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-
-                b12.setOpaque(false);
-                b12.setContentAreaFilled(false);
-                b12.setBorderPainted(false);
-                getwinner1(t1.getText());
-                getwinner2(t2.getText());
+                if(resetwait==0) {
+                    b12.setOpaque(false);
+                    b12.setContentAreaFilled(false);
+                    b12.setBorderPainted(false);
+                    getwinner1(t1.getText());
+                    getwinner2(t2.getText());
 //                if(winfreeze!=1) {
-                if(turn==0) {
-                    matrix[0][1]=1;
-                   }
-                   else {
-                    matrix[0][1]=2;
-                   }
+                    if(turn==0) {
+                        matrix[0][1]=1;
+                    }
+                    else {
+                        matrix[0][1]=2;
+                    }
 
-               //call that method here
-               f.repaint();turn=1-turn; //}
+                    //call that method here
+                    f.repaint();turn=1-turn; //}
+                }
+
+
             }
         });
         b13.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-                start=1;
-                b13.setOpaque(false);
-                b13.setContentAreaFilled(false);
-                b13.setBorderPainted(false);
-                getwinner1(t1.getText());
-                getwinner2(t2.getText());
-                if(turn==0) {
-                    matrix[0][2]=1;
-                   }
-                   else {
-                    matrix[0][2]=2;
-                   }
+                if(resetwait==0) {
+                    start=1;
+                    b13.setOpaque(false);
+                    b13.setContentAreaFilled(false);
+                    b13.setBorderPainted(false);
+                    getwinner1(t1.getText());
+                    getwinner2(t2.getText());
+                    if(turn==0) {
+                        matrix[0][2]=1;
+                    }
+                    else {
+                        matrix[0][2]=2;
+                    }
 
-               //call that method here
-               f.repaint();turn=1-turn;
+                    //call that method here
+                    f.repaint();turn=1-turn;
+                }
+
             }
         });
         b21.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-                start=1;
+                if(resetwait==0) {
+                    start=1;
 
-                b21.setOpaque(false);
-                b21.setContentAreaFilled(false);
-                b21.setBorderPainted(false);
-                getwinner1(t1.getText());
-                getwinner2(t2.getText());
-                if(turn==0) {
-                    matrix[1][0]=1;
-                   }
-                   else {
-                    matrix[1][0]=2;
-                   }
+                    b21.setOpaque(false);
+                    b21.setContentAreaFilled(false);
+                    b21.setBorderPainted(false);
+                    getwinner1(t1.getText());
+                    getwinner2(t2.getText());
+                    if(turn==0) {
+                        matrix[1][0]=1;
+                    }
+                    else {
+                        matrix[1][0]=2;
+                    }
 
-               //call that method here
-               f.repaint();turn=1-turn;
+                    //call that method here
+                    f.repaint();turn=1-turn;
+                }
+
             }
         });
         b22.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-                start=1;
+                if(resetwait==0) {
+                    start=1;
 
-                b22.setOpaque(false);
-                b22.setContentAreaFilled(false);
-                b22.setBorderPainted(false);
-                getwinner1(t1.getText());
-                getwinner2(t2.getText());
-                if(turn==0) {
-                    matrix[1][1]=1;
-                   }
-                   else {
-                    matrix[1][1]=2;
-                   }
+                    b22.setOpaque(false);
+                    b22.setContentAreaFilled(false);
+                    b22.setBorderPainted(false);
+                    getwinner1(t1.getText());
+                    getwinner2(t2.getText());
+                    if(turn==0) {
+                        matrix[1][1]=1;
+                    }
+                    else {
+                        matrix[1][1]=2;
+                    }
 
-               //call that method here
-               f.repaint();turn=1-turn;
+                    //call that method here
+                    f.repaint();turn=1-turn;
+                }
+
             }
         });
         b23.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-                start=1;
+                if(resetwait==0) {
+                    start=1;
 
-                b23.setOpaque(false);
-                b23.setContentAreaFilled(false);
-                b23.setBorderPainted(false);
-                getwinner1(t1.getText());
-                getwinner2(t2.getText());
-                if(turn==0) {
-                    matrix[1][2]=1;
-                   }
-                   else {
-                    matrix[1][2]=2;
-                   }
+                    b23.setOpaque(false);
+                    b23.setContentAreaFilled(false);
+                    b23.setBorderPainted(false);
+                    getwinner1(t1.getText());
+                    getwinner2(t2.getText());
+                    if(turn==0) {
+                        matrix[1][2]=1;
+                    }
+                    else {
+                        matrix[1][2]=2;
+                    }
 
-               //call that method here
-               f.repaint();turn=1-turn;
+                    //call that method here
+                    f.repaint();turn=1-turn;
+                }
+
             }
         });
         b31.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-                start=1;
+                if(resetwait==0) {
+                    start=1;
 
-                b31.setOpaque(false);
-                b31.setContentAreaFilled(false);
-                b31.setBorderPainted(false);
-                getwinner1(t1.getText());
-                getwinner2(t2.getText());
-                if(turn==0) {
-                    matrix[2][0]=1;
-                   }
-                   else {
-                    matrix[2][0]=2;
-                   }
+                    b31.setOpaque(false);
+                    b31.setContentAreaFilled(false);
+                    b31.setBorderPainted(false);
+                    getwinner1(t1.getText());
+                    getwinner2(t2.getText());
+                    if(turn==0) {
+                        matrix[2][0]=1;
+                    }
+                    else {
+                        matrix[2][0]=2;
+                    }
 
-               //call that method here
-               f.repaint();turn=1-turn;
+                    //call that method here
+                    f.repaint();turn=1-turn;
+                }
+
             }
         });
         b32.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-                start=1;
+                if(resetwait==0) {
+                    start=1;
 
-                b32.setOpaque(false);
-                b32.setContentAreaFilled(false);
-                b32.setBorderPainted(false);
-                getwinner1(t1.getText());
-                getwinner2(t2.getText());
-                if(turn==0) {
-                    matrix[2][1]=1;
-                   }
-                   else {
-                    matrix[2][1]=2;
-                   }
+                    b32.setOpaque(false);
+                    b32.setContentAreaFilled(false);
+                    b32.setBorderPainted(false);
+                    getwinner1(t1.getText());
+                    getwinner2(t2.getText());
+                    if(turn==0) {
+                        matrix[2][1]=1;
+                    }
+                    else {
+                        matrix[2][1]=2;
+                    }
 
-               //call that method here
-               f.repaint();turn=1-turn;
+                    //call that method here
+                    f.repaint();turn=1-turn;
+                }
+
             }
         });
         b33.addActionListener(new ActionListener() {
 //            @Override
             public void actionPerformed(ActionEvent e) {
-                start=1;
+                if(resetwait==0) {
+                    start=1;
 
-                b33.setOpaque(false);
-                b33.setContentAreaFilled(false);
-                b33.setBorderPainted(false);
-                getwinner1(t1.getText());
-                getwinner2(t2.getText());
-                if(turn==0) {
-                    matrix[2][2]=1;
-                   }
-                   else {
-                    matrix[2][2]=2;
-                   }
+                    b33.setOpaque(false);
+                    b33.setContentAreaFilled(false);
+                    b33.setBorderPainted(false);
+                    getwinner1(t1.getText());
+                    getwinner2(t2.getText());
+                    if(turn==0) {
+                        matrix[2][2]=1;
+                    }
+                    else {
+                        matrix[2][2]=2;
+                    }
 
-               //call that method here
-               f.repaint();turn=1-turn;
+                    //call that method here
+                    f.repaint();turn=1-turn;
+                }
+
             }
         });
         reset.addActionListener(new ActionListener() {
             //            @Override
             public void actionPerformed(ActionEvent e) {
                 start=0;
-
+                resetwait =0;
                 b11.setOpaque(true);
                 b12.setOpaque(true);
                 b13.setOpaque(true);
@@ -478,6 +508,7 @@ static void  getwinner2(String r) {
     }
 static void resetfn() {
     turn = 1;
+//    String resetwait="not waiting";
     for(int i =0;i<3;i++) {
         for(int j=0;j<3;j++) {
             matrix[i][j] = 0;
