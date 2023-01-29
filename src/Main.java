@@ -4,12 +4,12 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
-import javax.imageio.ImageIO;
-import java.io.File;
-
-import java.awt.Graphics2D;
-import java.awt.geom.Line2D;
-import java.io.IOException;
+//import javax.imageio.ImageIO;
+//import java.io.File;
+//
+////import java.awt.Graphics2D;
+////import java.awt.geom.Line2D;
+//import java.io.IOException;
 
 public class Main extends JPanel{
     //initialize the 3x3 matrix
@@ -69,7 +69,7 @@ public class Main extends JPanel{
             winner++;// 0 becomes 1 and 1 becomes 2
             if(winner==1) {
                 if(k.equals("")) {
-                    g.drawString("Player :o wins",leftx,215);
+                    g.drawString("O wins",leftx,215);
                 }else {
                     g.drawString("Player :"+k+" wins",leftx,215);
                 }
@@ -77,7 +77,7 @@ public class Main extends JPanel{
             }
             else {
                 if(l.equals("")) {
-                    g.drawString("Player :x wins",leftx,215);
+                    g.drawString("X wins",leftx,215);
                 } else {
                     g.drawString("Player :"+l+" wins",leftx,215);
                 }
@@ -114,7 +114,7 @@ public class Main extends JPanel{
 
     }
 
-    public static void main(String[] arg) throws IOException {
+    public static void main(String[] arg){
 
         for(int i =0;i<3;i++) {
             for(int j=0;j<3;j++) {
@@ -124,8 +124,7 @@ public class Main extends JPanel{
         
         Main m = new Main();
         JFrame f=new JFrame("Tic-Tac-Toe");
-        File file = new File("assets/icon.png");
-        f.setIconImage(ImageIO.read(file));
+
         m.setBackground( Color.white);  //use decode function for hex eg) Color.decode("#986");
         JButton b11 = new JButton();
         JButton b12 = new JButton();
