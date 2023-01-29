@@ -14,6 +14,7 @@ Simple tic-tac-toe game that is written in java.
 ## 💿Installation
 Install the latest version from the <a href="https://github.com/Saber-Haste/Simple-tic-tac-toe-java/releases" >releases</a>.
 
+Note: Requires <a href="https://www.azul.com/downloads/?version=java-17-lts&os=windows&architecture=x86-64-bit&package=jre" >JRE 17</a>
 ## 🖥️Compilation
 
 ### Requirements-
