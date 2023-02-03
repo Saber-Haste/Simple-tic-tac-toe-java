@@ -8,7 +8,7 @@ Simple tic-tac-toe game that is written in java.
 <li><s>Get it Working</s></li>
 <li><s>fix bugs</s></li>
 <li><s>Make it look good</s></li>
-<li>Add the first release</li>
+<li><s>Add the first release</s></li>
 </ul>
 
 ## 💿Installation
@@ -27,14 +27,14 @@ Now open the terminal and clone this repo.
  ```sh
  git clone https://github.com/Saber-Haste/Simple-tic-tac-toe-java.git
  ```
-change the active directory by
+change the active directory to src by
  ```sh
- cd Simple-tic-tac-toe-java
+ cd Simple-tic-tac-toe-java-main/src
  ```
 Now just compile and run the src.Main.java
 ```sh
-javac src.Main.java
-java src.Main
+javac Main.java
+java Main
 ```
 ## 😊Remarks
 This is one of my first projects. I sincerely thank everyone that directly/indirectly motivated me to finally get into coding.❤️❤️
